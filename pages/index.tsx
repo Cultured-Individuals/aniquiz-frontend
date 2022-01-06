@@ -22,7 +22,7 @@ const Home: NextPage = () => {
             alt="Quiz Cover Image"
             width={quiz.attributes?.coverImage.data?.attributes?.width ?? '100px'}
             height={quiz.attributes?.coverImage.data?.attributes?.height ?? '100px'}
-            src={`${process.env.NEXT_PUBLIC_ASSET_ENDPOINT}${quiz.attributes?.coverImage.data?.attributes?.url}`}
+            src={`${quiz.attributes?.coverImage.data?.attributes?.url}`}
           />
           <VStack spacing={2} align="flex-start" p={2}>
             <Box display="flex" alignItems="baseline">
