@@ -1,6 +1,7 @@
 import { Badge, Box, Button, Heading, Text, VStack } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import { toast } from 'react-toastify'
 import { useGetQuizzes } from '../gql/queries/backend/getQuizzes'
 
 const Home: NextPage = () => {
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
       </Heading>
       {
       data?.quizzes?.data.map(quiz => (
-        <Box maxW="sm" borderWidth="1px" borderRadius="lg" key={quiz.id}>
+        <Box maxW="sm" borderWidth="1px" borderRadius="lg" key={quiz.id} overflow="hidden">
           <Image
             alt="Quiz Cover Image"
             width={quiz.attributes?.coverImage.data?.attributes?.width ?? '100px'}
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
             </Box>
             <Heading size="md">{quiz.attributes?.Title}</Heading>
             <Text>{quiz.attributes?.description}</Text>
-            <Button colorScheme="purple" isFullWidth>
+            <Button onClick={() => toast('This doesn\'t work yet :/', {position: 'bottom-center', theme: 'dark'})} colorScheme="purple" isFullWidth>
               Play Now
             </Button>
           </VStack>
