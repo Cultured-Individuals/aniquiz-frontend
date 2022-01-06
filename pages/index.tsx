@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Heading, Text, VStack } from '@chakra-ui/react'
+import { Badge, Box, Button, Heading, Text, useColorMode, VStack } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
@@ -6,7 +6,7 @@ import { useGetQuizzes } from '../gql/queries/backend/getQuizzes'
 
 const Home: NextPage = () => {
   const { data, loading, error } = useGetQuizzes()
-
+  const {colorMode} = useColorMode()
 
   if (loading) return <p>Loading...</p>
 
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
             </Box>
             <Heading size="md">{quiz.attributes?.Title}</Heading>
             <Text>{quiz.attributes?.description}</Text>
-            <Button onClick={() => toast('This doesn\'t work yet :/', {position: 'bottom-center', theme: 'dark'})} colorScheme="purple" isFullWidth>
+            <Button onClick={() => toast('This doesn\'t work yet :/', {position: 'bottom-center', theme: colorMode})} colorScheme="purple" isFullWidth>
               Play Now
             </Button>
           </VStack>
