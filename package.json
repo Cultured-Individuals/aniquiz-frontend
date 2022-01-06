@@ -1,24 +1,38 @@
 {
   "name": "aniquiz-frontend",
   "private": true,
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:anilist": "apollo codegen:generate --endpoint=https://graphql.anilist.co --includes='gql/{queries,mutations}/anilist/*.ts,' --target=typescript --tagName=gql --tsFileExtension=d.ts",
+    "generate:backend": "apollo codegen:generate --endpoint=http://localhost:1337/graphql --includes='gql/{queries,mutations}/backend/*.ts,' --target=typescript --tagName=gql --tsFileExtension=d.ts",
+    "generate:types": "npm run generate:anilist && npm run generate:backend"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
+    "@chakra-ui/react": "^1.7.4",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "framer-motion": "^5.5.5",
     "graphql": "^16.2.0",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-toastify": "^8.1.0"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
+    "eslint-plugin-react": "^7.28.0",
     "typescript": "4.5.4"
   }
 }
