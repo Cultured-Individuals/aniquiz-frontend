@@ -1,4 +1,4 @@
-import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import QuizList from '../components/quizzes/QuizList'
@@ -6,8 +6,6 @@ import backgroundImage from '../public/assets/blurry-gradient-haikei.svg'
 import circleScatter from '../public/assets/circle-scatter-haikei.svg'
 
 const Home: NextPage = () => {  
-  const borderColor = useColorModeValue('whiteAlpha.300', 'blackAlpha.300')
-
   return (
     <Box>
       <Box>
